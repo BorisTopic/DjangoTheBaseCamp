@@ -1,0 +1,38 @@
+{% extends 'finalproject/base.html' %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Campfire Post</title>
+</head>
+{% block body %}
+    <body id="post_body">
+        <div id="post" class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="">Post Title</label>
+                            <input type="text" class="form-control" id="post_title2" name="post_title">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Post Summary</label>
+                            <textarea class="form-control" id="post_summary" name="post_summary"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Post Image</label>
+                            <input type="text" class="form-control" id="post_image" name="post_image" placeholder="image link...">
+                        </div>
+                        <button id="post_button" type="submit" class="btn btn-warning">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+{% endblock %}
+</html>

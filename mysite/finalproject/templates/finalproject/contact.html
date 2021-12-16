@@ -1,0 +1,38 @@
+{% extends 'finalproject/base.html' %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact</title>
+</head>
+{% block body %}
+    <body id="contact_body">
+<div id="contact" class="container">
+    <div class="row">
+        <div class="col-md-7">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="">Name</label>
+                    <input type="text" class="form-control" id="contact_name" name="contact_name">
+                </div>
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input type="text" class="form-control" id="contact_email" name="contact_email" placeholder="username@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label for="">What are you contacting us about?</label>
+                    <textarea class="form-control" id="contact_summary" name="contact_summary"></textarea>
+                </div>
+                <button id="contact_button" type="submit" class="btn btn-dark">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+    </body>
+{% endblock %}
+</html>

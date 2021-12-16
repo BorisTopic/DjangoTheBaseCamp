@@ -1,0 +1,27 @@
+{% extends 'finalproject/base.html' %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Campfire Post</title>
+</head>
+    {% block body %}
+        <body id="detail_body">
+            <div id="campfiredetail_div">
+                <div id="detail_postimage">
+                    <img src="{{ thecampfire_posts.post_image }}" alt="Post Image">
+                </div>
+                <div id="detail_posttitle">
+                    <h1>{{ thecampfire_posts.post_title }}</h1>
+                </div>
+                <div id="detail_postsummary">
+                    <h5>{{ thecampfire_posts.post_summary }}</h5>
+                </div>
+            </div>
+        </body>
+    {% endblock %}
+</html>

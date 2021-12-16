@@ -1,0 +1,18 @@
+{% extends 'finalproject/base.html' %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Log Out</title>
+</head>
+{% block body %}
+    <body id="logout_body">
+    <h1>You have been logged out.</h1>
+    <button type="button" class="btn btn-dark"><a id="logout_returnhome" href="{% url 'finalproject:home' %}">Return Home</a></button>
+    </body>
+{% endblock %}
+</html>

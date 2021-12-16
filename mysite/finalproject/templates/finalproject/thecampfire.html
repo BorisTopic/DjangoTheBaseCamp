@@ -1,0 +1,46 @@
+{% extends 'finalproject/base.html' %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Campfire</title>
+</head>
+<body>
+{% block body %}
+    <div id="thecampfire_imagediv">
+        <img id="thecampfire_image" src="{% static 'media/thecampfirebackground.jpeg' %}" alt="campfire"/>
+        <!--image by: Tima Miroshnichenko-->
+        <div id="thecampfire_imagetext_message">
+            <h2>For millenniums, tales of<br>
+                great adventures have been<br>
+                passed down from generation<br>
+                to generation around the<br>
+                campfire. Just because times<br>
+                change, doesn't mean our<br>
+                desire to share our adventures<br>
+                does. Tell us your adventures<br>
+                at the campfire.</h2>
+        </div>
+        <div id="thecampfire_imagetext_postbutton">
+            {% if user.is_authenticated %}
+                <button type="button" class="btn btn-warning"><a id="thecampfire_postbutton" href="{% url 'finalproject:thecampfire_post' %}">Post</a></button>
+            {% else %}
+                <h2 id="thecampfire_posttext">You must be logged in to post!</h2>
+            {% endif %}
+        </div>
+    </div>
+    <div id="posts_div">
+        {% for post in thecampfire_posts %}
+            <div id="post_title">
+                {{ post.post_title }}<br>
+                <a href="{% url 'finalproject:thecampfire_detail' post.id %}" class="btn btn-warning">View Post</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+</body>
+</html>

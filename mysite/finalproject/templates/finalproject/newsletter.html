@@ -1,0 +1,67 @@
+{% extends 'finalproject/base.html' %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>News Letter</title>
+</head>
+<body>
+{% block body %}
+    <div id="newsletter_imagediv">
+        <img id="newsletter_image" src="{% static 'media/newsletterbackground.jpeg' %}" alt="Mountain Goat"/>
+        <!--image by: Timo Neidermann-->
+        <div id="newsletter_imagetext_message">
+            <h2>Every week a new letter drops.<br>
+                Each letter features either an<br>
+                outstanding adventurer, a story<br>
+                from one of our staff, a site<br>
+                user who deserves recognition,<br>
+                and more! Be sure to check<br>
+                this page frequently to stay up<br>
+                to date on the latest outdoor news!</h2>
+        </div>
+    </div>
+    <div id="newsletter_search">
+        <form action="" method="GET">
+            <input id="newsletter_searchbar" class="form-control mr-sm-2" type="search" placeholder="search article name..." aria-label="Search" name="article_name">
+            <button id="newsletter_searchbarbutton" class="btn btn-dark" type="submit">Search</button>
+        </form>
+    </div>
+    <div id="newsletter_articles">
+        {% for article in newsletter_articles %}
+            <div id="newsletter_articleimagediv">
+                <img id="newsletter_articleimage" src="{{ article.image }}">
+            </div>
+            <div id="newletter_title">
+                <h1>{{ article.title }}</h1>
+            </div>
+            <div id="newsletter_author">
+                <h5>By: {{ article.author }}</h5>
+            </div>
+            <div id="newsletter_article">
+                {{ article.article }}
+            </div>
+        {% endfor %}
+    </div>
+    <div id="newsletter_paginator">
+        <ul class="pagination">
+            {% if newsletter_articles.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page=1">First</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ newsletter_articles.previous_page_number }}">Previous</a></li>
+            {% endif %}
+
+            <li class="disabled"><a class="page-link">Page: {{ newsletter_articles.number }} of {{ newsletter_articles.paginator.num_pages }}</a></li>
+
+            {% if newsletter_articles.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ newsletter_articles.next_page_number }}">Next</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ newsletter_articles.paginator.num_pages }}">Last</a></li>
+            {% endif %}
+        </ul>
+    </div>
+{% endblock %}
+</body>
+</html>

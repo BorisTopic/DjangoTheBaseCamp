@@ -1,0 +1,22 @@
+{% extends 'finalproject/base.html' %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile</title>
+</head>
+<body>
+{% block body %}
+    <div id="profile_div">
+    <img id="profile_image" src="{{ user.profile.image.url }}">
+    <h1 id="profile_username">{{ user.username }}</h1>
+    <h2 id="profile_bio">{{ user.profile.bio }}</h2>
+    <button id="profile_edit" type="button" class="btn btn-dark">Edit Profile</button>
+    </div>
+{% endblock %}
+</body>
+</html>

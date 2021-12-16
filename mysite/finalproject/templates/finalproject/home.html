@@ -1,0 +1,69 @@
+{% extends 'finalproject/base.html' %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+</head>
+<body id="homepage_body">
+{% block body %}
+    <div id="homepage_imagediv">
+        <img id="homepage_image" src="{% static 'media/homepagebackground.jpeg' %}" alt="Snowy Mountain"/>
+        <!--image by: Francesco Ungaro-->
+        <div id="homepage_imagetext_title">
+            <h1>Welcome to Base Camp.</h1>
+        </div>
+        <div id="homepage_imagetext_message">
+            <h2>Whether it be a walk in<br>
+                the park or summiting<br>
+                Everest. Every adventure<br>
+                to be shared. Base Camp is the<br>
+                place to connect with fellow<br>
+                adventurers, share stories,<br>
+                and to grow the outdoor<br>
+                community.</h2>
+        </div>
+        <div id="homepage_imagetext_signinbutton">
+            <button type="button" class="btn btn-dark"><a id="homepage_signin" href="{% url 'login' %}">Sign In</a></button>
+        </div>
+        <div id="homepage_imagetext_signunbutton">
+            <button type="button" class="btn btn-light"><a id="homepage_signup" href="{% url 'register' %}">Sign Up</a></button>
+        </div>
+    </div>
+    <div id="about">
+        <img id="about_image" src="{% static 'media/about.jpeg' %}" alt="Hiker in Snow"/>
+        <!--image by: Rok Romih-->
+        <div id="about_text">
+            <h1>About Us.</h1><br>
+            <h3>We're a group of outdoor enthusiasts who wanted<br>
+                to create a platform where fellow adventurers<br>
+                can share their stories and the outdoor community<br>
+                can come together to do good and encourage<br>
+                others to get outside! If we're not in the office,<br>
+                we're probably on the mountain!</h3>
+        </div>
+        <div> </div>
+    </div>
+    <div id="goal">
+    <div id="goal_text">
+            <h1>Our Goal.</h1><br>
+            <h3>We're a group of outdoor enthusiasts<br>
+                hoping to encourage others to enjoy<br>
+                outside. We believe creating a space<br>
+                for fellow adventurers to share their stories<br>
+                not only encourages others to get outside<br>
+                but also strengthens the community we already<br>
+                have. Our goal is get people outside and show<br>
+                what our earth has to offer.</h3>
+        </div>
+        <img id="goal_image" src="{% static 'media/goal.jpeg' %}" alt="Hiker in Snoq"/>
+        <!--image by: Rok Romih-->
+        <div> </div>
+    </div>
+{% endblock %}
+</body>
+</html>
